@@ -1,0 +1,16 @@
+name: Python CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+      
+    steps:
+    - uses: actions/checkout@v1
+    - name: install py3.7
+      run: sudo apt install python3.7
+    - name: pip install tox
+      run: pip3 install tox
+    - name: run tox
+      run: python3 -m tox -c tox.ini
